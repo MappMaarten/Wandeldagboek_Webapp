@@ -22,7 +22,7 @@
             --card-bg: #F8F5ED;
             --text: #2C3E35;
             --text-secondary: #6B7F73;
-            --success: #2F5940;
+            --glass: rgba(248, 245, 237, 0.85);
         }
 
         body {
@@ -33,7 +33,6 @@
             overflow-x: hidden;
         }
 
-        /* Paper texture overlay */
         body::before {
             content: '';
             position: fixed;
@@ -58,12 +57,15 @@
 
         /* Navigation */
         nav {
-            background: var(--card-bg);
-            padding: 20px 0;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 16px 0;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.08);
             position: sticky;
             top: 0;
             z-index: 100;
+            border-bottom: 1px solid rgba(47, 89, 64, 0.1);
         }
 
         nav .container {
@@ -75,16 +77,21 @@
         .logo {
             display: flex;
             align-items: center;
-            gap: 12px;
-            font-size: 24px;
-            font-weight: bold;
+            gap: 10px;
+            font-size: 22px;
+            font-weight: 700;
             color: var(--primary);
             text-decoration: none;
+            transition: transform 0.3s;
+        }
+
+        .logo:hover {
+            transform: translateY(-2px);
         }
 
         .logo svg {
-            width: 32px;
-            height: 32px;
+            width: 28px;
+            height: 28px;
         }
 
         .nav-links {
@@ -97,180 +104,220 @@
             color: var(--text);
             text-decoration: none;
             font-weight: 500;
+            font-size: 15px;
             transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s;
         }
 
         .nav-links a:hover {
             color: var(--primary);
         }
 
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
         .mobile-menu-btn {
             display: none;
             background: none;
             border: none;
-            font-size: 28px;
+            font-size: 24px;
             color: var(--primary);
             cursor: pointer;
         }
 
         /* Hero Section */
         .hero {
-            padding: 100px 0;
+            padding: 80px 0 60px;
             text-align: center;
         }
 
+        .hero-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
         .hero h1 {
-            font-size: 56px;
-            font-weight: bold;
-            color: var(--primary);
+            font-size: 52px;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             margin-bottom: 16px;
-            animation: fadeInUp 0.8s ease-out;
+            letter-spacing: -1px;
         }
 
         .hero .tagline {
-            font-size: 24px;
+            font-size: 22px;
             color: var(--accent);
             font-weight: 600;
-            margin-bottom: 24px;
-            animation: fadeInUp 0.8s ease-out 0.2s both;
+            margin-bottom: 20px;
         }
 
         .hero .description {
-            font-size: 18px;
+            font-size: 17px;
             color: var(--text-secondary);
-            max-width: 600px;
-            margin: 0 auto 48px;
-            line-height: 1.8;
-            animation: fadeInUp 0.8s ease-out 0.4s both;
+            line-height: 1.7;
+            margin-bottom: 36px;
         }
 
         .cta-button {
             display: inline-block;
             background: linear-gradient(135deg, var(--primary), var(--primary-dark));
             color: white;
-            padding: 18px 48px;
+            padding: 16px 42px;
             border-radius: 12px;
             text-decoration: none;
             font-weight: 600;
-            font-size: 18px;
-            box-shadow: 0 8px 24px rgba(47, 89, 64, 0.25);
-            transition: transform 0.3s, box-shadow 0.3s;
-            animation: fadeInUp 0.8s ease-out 0.6s both;
+            font-size: 17px;
+            box-shadow: 0 8px 24px rgba(47, 89, 64, 0.3);
+            transition: all 0.3s;
         }
 
         .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 32px rgba(47, 89, 64, 0.35);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 32px rgba(47, 89, 64, 0.4);
         }
 
         /* Features Section */
         .features {
-            padding: 80px 0;
-            background: var(--card-bg);
-            border-radius: 32px;
-            margin: 60px 24px;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+            padding: 60px 0;
         }
 
         .features h2 {
             text-align: center;
             font-size: 42px;
+            font-weight: 700;
             color: var(--primary);
-            margin-bottom: 64px;
+            margin-bottom: 48px;
+            letter-spacing: -0.5px;
         }
 
         .feature-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 48px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            max-width: 1000px;
+            margin: 0 auto;
         }
 
         .feature {
-            text-align: center;
-            opacity: 0;
-            animation: fadeInUp 0.6s ease-out forwards;
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 32px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+            border: 1px solid rgba(47, 89, 64, 0.1);
+            transition: all 0.3s;
         }
 
-        .feature:nth-child(1) { animation-delay: 0.1s; }
-        .feature:nth-child(2) { animation-delay: 0.2s; }
-        .feature:nth-child(3) { animation-delay: 0.3s; }
-        .feature:nth-child(4) { animation-delay: 0.4s; }
+        .feature:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+            border-color: rgba(47, 89, 64, 0.2);
+        }
 
         .feature-icon {
-            width: 80px;
-            height: 80px;
+            width: 64px;
+            height: 64px;
             background: linear-gradient(135deg, var(--primary-light), var(--primary));
-            border-radius: 50%;
+            border-radius: 16px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 24px;
-            box-shadow: 0 8px 24px rgba(47, 89, 64, 0.15);
+            margin-bottom: 20px;
+            box-shadow: 0 8px 24px rgba(47, 89, 64, 0.2);
         }
 
         .feature-icon svg {
-            width: 40px;
-            height: 40px;
+            width: 32px;
+            height: 32px;
             stroke: white;
             fill: none;
             stroke-width: 2;
         }
 
         .feature h3 {
-            font-size: 24px;
+            font-size: 20px;
             color: var(--primary);
-            margin-bottom: 12px;
+            margin-bottom: 10px;
+            font-weight: 700;
         }
 
         .feature p {
             color: var(--text-secondary);
-            font-size: 16px;
-            line-height: 1.7;
+            font-size: 15px;
+            line-height: 1.6;
         }
 
         /* Screenshots Section */
         .screenshots {
-            padding: 80px 0;
+            padding: 60px 0;
             text-align: center;
         }
 
         .screenshots h2 {
             font-size: 42px;
+            font-weight: 700;
             color: var(--primary);
-            margin-bottom: 48px;
+            margin-bottom: 40px;
+            letter-spacing: -0.5px;
         }
 
         .screenshot-grid {
             display: flex;
-            gap: 24px;
+            gap: 20px;
             justify-content: center;
             flex-wrap: wrap;
         }
 
         .screenshot {
-            background: var(--card-bg);
-            border-radius: 24px;
-            padding: 16px;
-            box-shadow: 0 12px 32px rgba(0,0,0,0.1);
-            max-width: 300px;
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 12px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            max-width: 280px;
+            border: 1px solid rgba(47, 89, 64, 0.1);
+            transition: all 0.3s;
+        }
+
+        .screenshot:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 48px rgba(0,0,0,0.15);
         }
 
         .screenshot-placeholder {
             aspect-ratio: 9/19.5;
             background: linear-gradient(135deg, var(--primary), var(--primary-light));
-            border-radius: 16px;
+            border-radius: 14px;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 18px;
+            font-size: 16px;
+            font-weight: 600;
         }
 
         /* Footer */
         footer {
             background: var(--primary-dark);
             color: white;
-            padding: 48px 0 24px;
+            padding: 40px 0 24px;
             margin-top: 80px;
         }
 
@@ -279,7 +326,7 @@
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
-            gap: 24px;
+            gap: 20px;
         }
 
         footer a {
@@ -287,6 +334,7 @@
             text-decoration: none;
             opacity: 0.8;
             transition: opacity 0.3s;
+            font-size: 14px;
         }
 
         footer a:hover {
@@ -298,18 +346,6 @@
             gap: 24px;
         }
 
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
         /* Responsive */
         @media (max-width: 768px) {
             .nav-links {
@@ -318,7 +354,8 @@
                 top: 100%;
                 left: 0;
                 right: 0;
-                background: var(--card-bg);
+                background: var(--glass);
+                backdrop-filter: blur(20px);
                 flex-direction: column;
                 padding: 24px;
                 box-shadow: 0 8px 16px rgba(0,0,0,0.1);
@@ -360,8 +397,8 @@
     <nav>
         <div class="container">
             <a href="index.html" class="logo">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                    <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
                 </svg>
                 Wandeldagboek
             </a>
@@ -377,40 +414,41 @@
 
     <section class="hero">
         <div class="container">
-            <h1>Wandeldagboek</h1>
-            <p class="tagline">Verhalen, geen stappen</p>
-            <p class="description">
-                Niet hoe ver je gaat, maar wat de wandeling je brengt. 
-                Leg je wandelbeleving vast met foto's, notities en reflecties. 
-                Een persoonlijk dagboek, geen sportapp.
-            </p>
-            <a href="#" class="cta-button">Download nu</a>
+            <div class="hero-content">
+                <h1>Wandeldagboek</h1>
+                <p class="tagline">Verhalen, geen stappen</p>
+                <p class="description">
+                    Niet hoe ver je gaat, maar wat de wandeling je brengt. 
+                    Leg je wandelbeleving vast met foto's, notities en reflecties.
+                </p>
+                <a href="#" class="cta-button">Download nu</a>
+            </div>
         </div>
     </section>
 
     <section class="features" id="features">
         <div class="container">
-            <h2>Wat maakt Wandeldagboek bijzonder?</h2>
+            <h2>Waarom Wandeldagboek?</h2>
             <div class="feature-grid">
                 <div class="feature">
                     <div class="feature-icon">
                         <svg viewBox="0 0 24 24">
-                            <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
+                            <circle cx="12" cy="12" r="3"/>
+                            <path d="M12 5v.01M12 19v.01M19 12h.01M5 12h.01M16.95 7.05l-.01.01M7.05 16.95l-.01.01M16.95 16.95l-.01.01M7.05 7.05l-.01.01"/>
                         </svg>
                     </div>
                     <h3>Leg vast wat je ziet</h3>
-                    <p>Een vogel die je verrast, lichtval die je raakt, details die je normaal zou missen. Vastleggen met foto's en notities.</p>
+                    <p>Een vogel die je verrast, lichtval die je raakt. Vastleggen met foto's en notities.</p>
                 </div>
 
                 <div class="feature">
                     <div class="feature-icon">
                         <svg viewBox="0 0 24 24">
-                            <circle cx="12" cy="12" r="10"/>
-                            <path d="M12 6v6l4 2"/>
+                            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
                         </svg>
                     </div>
                     <h3>Sta stil bij je gevoel</h3>
-                    <p>Check in bij jezelf: energie, spanning, rust. Hoe start je? Hoe eindig je? Ontdek het effect van wandelen.</p>
+                    <p>Check in bij jezelf: energie, spanning, rust. Ontdek het effect van wandelen.</p>
                 </div>
 
                 <div class="feature">
@@ -421,7 +459,7 @@
                         </svg>
                     </div>
                     <h3>Verbind je gedachten</h3>
-                    <p>Wandelgedachten verdwijnen snel. Leg ze hier vast, lees terug, ontdek patronen in je beleving.</p>
+                    <p>Leg wandelgedachten vast, lees terug, ontdek patronen in je beleving.</p>
                 </div>
 
                 <div class="feature">
@@ -432,7 +470,7 @@
                         </svg>
                     </div>
                     <h3>Zachte herinneringen</h3>
-                    <p>Vriendelijke reminders tijdens je wandeling en motivatie om regelmatig te wandelen. Alles optioneel.</p>
+                    <p>Vriendelijke reminders tijdens je wandeling. Alles optioneel.</p>
                 </div>
             </div>
         </div>
@@ -463,7 +501,7 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2024 Wandeldagboek. Alle rechten voorbehouden.</p>
+            <p>&copy; 2024 Wandeldagboek</p>
             <div class="footer-links">
                 <a href="privacy.html">Privacy</a>
                 <a href="feedback.html">Contact</a>
@@ -474,11 +512,9 @@
 
     <script>
         function toggleMenu() {
-            const navLinks = document.getElementById('navLinks');
-            navLinks.classList.toggle('active');
+            document.getElementById('navLinks').classList.toggle('active');
         }
 
-        // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
