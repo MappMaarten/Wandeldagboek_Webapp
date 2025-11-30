@@ -234,9 +234,9 @@
 
         .feature-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(3, 1fr);
             gap: 24px;
-            max-width: 1000px;
+            max-width: 1100px;
             margin: 0 auto;
         }
 
@@ -285,6 +285,193 @@
             color: var(--text-secondary);
             font-size: 15px;
             line-height: 1.65;
+        }
+
+        /* LAW Feature Section */
+        .law-feature {
+            padding: 100px 0;
+            background: var(--card-bg);
+        }
+
+        .law-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .law-text {
+            max-width: 480px;
+        }
+
+        .law-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: white;
+            padding: 6px 14px;
+            border-radius: 100px;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+            margin-bottom: 16px;
+        }
+
+        .law-feature h2 {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 16px;
+            letter-spacing: -0.5px;
+        }
+
+        .law-feature > .container > .law-content > .law-text > p {
+            font-size: 17px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 28px;
+        }
+
+        .law-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .law-list li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 0;
+            font-size: 15px;
+            color: var(--text);
+        }
+
+        .law-list svg {
+            width: 20px;
+            height: 20px;
+            stroke: var(--primary);
+            flex-shrink: 0;
+        }
+
+        .law-visual {
+            display: flex;
+            justify-content: center;
+        }
+
+        .route-card {
+            background: var(--background);
+            border-radius: 20px;
+            padding: 28px;
+            width: 100%;
+            max-width: 360px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+        }
+
+        .route-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 20px;
+        }
+
+        .route-icon {
+            font-size: 32px;
+        }
+
+        .route-name {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--text);
+        }
+
+        .route-meta {
+            font-size: 13px;
+            color: var(--text-secondary);
+            margin-top: 2px;
+        }
+
+        .route-progress {
+            margin-bottom: 20px;
+        }
+
+        .progress-bar {
+            height: 8px;
+            background: rgba(47, 89, 64, 0.1);
+            border-radius: 100px;
+            overflow: hidden;
+            margin-bottom: 8px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--primary-light));
+            border-radius: 100px;
+            transition: width 0.5s ease;
+        }
+
+        .progress-text {
+            font-size: 13px;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .route-stages {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .stage {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 14px;
+            background: var(--card-bg);
+            border-radius: 12px;
+            font-size: 14px;
+        }
+
+        .stage-num {
+            width: 28px;
+            height: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--background);
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+
+        .stage.completed .stage-num {
+            background: var(--primary);
+            color: white;
+        }
+
+        .stage.next .stage-num {
+            background: var(--accent);
+            color: white;
+        }
+
+        .stage-name {
+            flex: 1;
+            color: var(--text);
+            font-weight: 500;
+        }
+
+        .stage.completed svg {
+            width: 18px;
+            height: 18px;
+            stroke: var(--primary);
+        }
+
+        .stage-badge {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--accent);
+            background: rgba(212, 150, 90, 0.15);
+            padding: 4px 10px;
+            border-radius: 100px;
         }
 
         /* Screenshots Section */
@@ -478,6 +665,30 @@
                 grid-template-columns: 1fr;
             }
 
+            @media (min-width: 500px) and (max-width: 768px) {
+                .feature-grid {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+            }
+
+            .law-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .law-text {
+                text-align: center;
+                max-width: 100%;
+            }
+
+            .law-feature h2 {
+                font-size: 28px;
+            }
+
+            .law-list li {
+                justify-content: center;
+            }
+
             .screenshot-wrapper {
                 flex-direction: column;
                 align-items: center;
@@ -551,19 +762,29 @@
     <section class="features" id="features">
         <div class="container">
             <div class="section-header">
-                <h2>Waarom Wandeldagboek?</h2>
-                <p>Een app die je helpt stil te staan bij de momenten die ertoe doen tijdens je wandelingen.</p>
+                <h2>Alles wat je nodig hebt</h2>
+                <p>Ontworpen voor wandelaars die hun beleving willen vastleggen, niet hun prestaties.</p>
             </div>
             <div class="feature-grid">
                 <div class="feature">
                     <div class="feature-icon">
                         <svg viewBox="0 0 24 24">
-                            <circle cx="12" cy="12" r="3"/>
-                            <path d="M12 5v.01M12 19v.01M19 12h.01M5 12h.01M16.95 7.05l-.01.01M7.05 16.95l-.01.01M16.95 16.95l-.01.01M7.05 7.05l-.01.01"/>
+                            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
                         </svg>
                     </div>
-                    <h3>Leg vast wat je ziet</h3>
-                    <p>Een vogel die je verrast, lichtval die je raakt. Vastleggen met foto's en notities, zonder afleiding van statistieken.</p>
+                    <h3>Jouw verhaal schrijven</h3>
+                    <p>Schrijf je gedachten op tijdens of na de wandeling. Gebruik snelle notities voor dieren, pauzes of ontmoetingen met één tik.</p>
+                </div>
+
+                <div class="feature">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                        </svg>
+                    </div>
+                    <h3>LAW-routes & etappes</h3>
+                    <p>Speciaal voor lange afstandswandelingen zoals het Pieterpad. Houd je etappes bij en lees later je hele route terug.</p>
                 </div>
 
                 <div class="feature">
@@ -572,30 +793,119 @@
                             <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
                         </svg>
                     </div>
-                    <h3>Sta stil bij je gevoel</h3>
-                    <p>Check in bij jezelf: energie, spanning, rust. Ontdek het effect van wandelen op je welzijn over tijd.</p>
+                    <h3>Energie & stress meten</h3>
+                    <p>Meet hoe je je voelt vóór en ná elke wandeling. Ontdek welke wandelingen je het meeste goed doen.</p>
                 </div>
 
                 <div class="feature">
                     <div class="feature-icon">
                         <svg viewBox="0 0 24 24">
-                            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
-                            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+                            <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+                            <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+                            <line x1="12" y1="19" x2="12" y2="23"/>
+                            <line x1="8" y1="23" x2="16" y2="23"/>
                         </svg>
                     </div>
-                    <h3>Verbind je gedachten</h3>
-                    <p>Leg wandelgedachten vast, lees terug, ontdek patronen in je beleving. Jouw persoonlijke wandelarchief.</p>
+                    <h3>Audio opnames</h3>
+                    <p>Neem je gedachten op terwijl je loopt. Vogelgeluiden, een idee, of gewoon je stemming - zonder te stoppen.</p>
                 </div>
 
                 <div class="feature">
                     <div class="feature-icon">
                         <svg viewBox="0 0 24 24">
-                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
-                            <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                            <circle cx="12" cy="12" r="3"/>
+                            <path d="M12 5v.01M12 19v.01M19 12h.01M5 12h.01M16.95 7.05l-.01.01M7.05 16.95l-.01.01M16.95 16.95l-.01.01M7.05 7.05l-.01.01"/>
                         </svg>
                     </div>
-                    <h3>Volledig privé</h3>
-                    <p>Geen account nodig, geen tracking, geen social media. Jouw wandelingen blijven van jou.</p>
+                    <h3>Observaties bijhouden</h3>
+                    <p>Log het weer, terrein, dieren die je spot, pauzes en ontmoetingen. Bouw een rijke herinnering van elke wandeling.</p>
+                </div>
+
+                <div class="feature">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24">
+                            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                        </svg>
+                    </div>
+                    <h3>Eigen wandeltypes</h3>
+                    <p>Bos, heide, stad, strand of je eigen categorie. Maak aangepaste types die passen bij jouw wandelstijl.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Extra detail sectie voor LAW routes -->
+    <section class="law-feature">
+        <div class="container">
+            <div class="law-content">
+                <div class="law-text">
+                    <span class="law-badge">Voor lange afstandswandelaars</span>
+                    <h2>Houd je LAW-routes bij</h2>
+                    <p>Loop je het Pieterpad, Pelgrimspad of een andere lange afstandswandeling? Wandeldagboek maakt het makkelijk om al je etappes bij te houden.</p>
+                    <ul class="law-list">
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                            Maak routes aan met het totaal aantal etappes
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                            Automatische naamgeving per etappe
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                            Lees al je etappes chronologisch terug
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                            Zie je voortgang op de hele route
+                        </li>
+                    </ul>
+                </div>
+                <div class="law-visual">
+                    <div class="route-card">
+                        <div class="route-header">
+                            <span class="route-icon">🥾</span>
+                            <div>
+                                <div class="route-name">Pieterpad</div>
+                                <div class="route-meta">26 etappes · 498 km</div>
+                            </div>
+                        </div>
+                        <div class="route-progress">
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 35%"></div>
+                            </div>
+                            <span class="progress-text">9 van 26 etappes</span>
+                        </div>
+                        <div class="route-stages">
+                            <div class="stage completed">
+                                <span class="stage-num">8</span>
+                                <span class="stage-name">Vorden → Borculo</span>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                                    <polyline points="20 6 9 17 4 12"/>
+                                </svg>
+                            </div>
+                            <div class="stage completed">
+                                <span class="stage-num">9</span>
+                                <span class="stage-name">Borculo → Diepenheim</span>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                                    <polyline points="20 6 9 17 4 12"/>
+                                </svg>
+                            </div>
+                            <div class="stage next">
+                                <span class="stage-num">10</span>
+                                <span class="stage-name">Diepenheim → Holten</span>
+                                <span class="stage-badge">Volgende</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -612,7 +922,15 @@
                 <div class="screenshot">
                     <div class="phone-frame">
                         <div class="phone-screen">
-                            <img src="screenshot1.jpg" alt="Wandeldagboek - Overzicht">
+                            <!-- Vervang dit met: <img src="screenshot1.png" alt="Wandeldagboek screenshot"> -->
+                            <div class="screenshot-placeholder">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                                    <circle cx="8.5" cy="8.5" r="1.5"/>
+                                    <polyline points="21 15 16 10 5 21"/>
+                                </svg>
+                                <span>screenshot1.png</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -621,7 +939,15 @@
                 <div class="screenshot">
                     <div class="phone-frame">
                         <div class="phone-screen">
-                            <img src="screenshot2.jpg" alt="Wandeldagboek - Wandeling vastleggen">
+                            <!-- Vervang dit met: <img src="screenshot2.png" alt="Wandeldagboek screenshot"> -->
+                            <div class="screenshot-placeholder">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                                    <circle cx="8.5" cy="8.5" r="1.5"/>
+                                    <polyline points="21 15 16 10 5 21"/>
+                                </svg>
+                                <span>screenshot2.png</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -630,7 +956,15 @@
                 <div class="screenshot">
                     <div class="phone-frame">
                         <div class="phone-screen">
-                            <img src="screenshot3.jpg" alt="Wandeldagboek - Reflectie">
+                            <!-- Vervang dit met: <img src="screenshot3.png" alt="Wandeldagboek screenshot"> -->
+                            <div class="screenshot-placeholder">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                                    <circle cx="8.5" cy="8.5" r="1.5"/>
+                                    <polyline points="21 15 16 10 5 21"/>
+                                </svg>
+                                <span>screenshot3.png</span>
+                            </div>
                         </div>
                     </div>
                 </div>
