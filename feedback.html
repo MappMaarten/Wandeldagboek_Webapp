@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FAQ - Wandeldagboek</title>
+    <title>Contact - Wandeldagboek</title>
     <style>
         * {
             margin: 0;
@@ -129,69 +129,115 @@
         .page-header p {
             font-size: 17px;
             color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
         }
 
-        .faq-section {
+        .contact-section {
             padding: 40px 0 80px;
         }
 
-        .faq-item {
+        .contact-card {
             background: var(--glass);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-            border-radius: 16px;
-            margin-bottom: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+            border-radius: 20px;
+            padding: 48px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.08);
             border: 1px solid rgba(47, 89, 64, 0.1);
-            transition: all 0.3s;
         }
 
-        .faq-item:hover {
-            box-shadow: 0 6px 24px rgba(0,0,0,0.1);
+        .form-group {
+            margin-bottom: 24px;
         }
 
-        .faq-question {
-            padding: 20px 24px;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
             font-weight: 600;
-            font-size: 16px;
             color: var(--primary);
-            user-select: none;
-        }
-
-        .faq-question:hover {
-            background: rgba(47, 89, 64, 0.05);
-        }
-
-        .faq-icon {
-            font-size: 20px;
-            transition: transform 0.3s;
-            color: var(--accent);
-        }
-
-        .faq-item.active .faq-icon {
-            transform: rotate(180deg);
-        }
-
-        .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease-out;
-        }
-
-        .faq-answer-content {
-            padding: 0 24px 20px;
-            color: var(--text-secondary);
-            line-height: 1.7;
             font-size: 15px;
         }
 
-        .faq-item.active .faq-answer {
-            max-height: 500px;
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid rgba(47, 89, 64, 0.15);
+            border-radius: 12px;
+            font-size: 15px;
+            font-family: inherit;
+            background: white;
+            color: var(--text);
+            transition: all 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(47, 89, 64, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            padding: 16px 48px;
+            border: none;
+            border-radius: 12px;
+            font-size: 17px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 8px 24px rgba(47, 89, 64, 0.3);
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 32px rgba(47, 89, 64, 0.4);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        .contact-info {
+            margin-top: 48px;
+            padding-top: 48px;
+            border-top: 2px solid rgba(47, 89, 64, 0.1);
+            text-align: center;
+        }
+
+        .contact-info h3 {
+            font-size: 20px;
+            color: var(--primary);
+            margin-bottom: 16px;
+            font-weight: 700;
+        }
+
+        .contact-info p {
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+            line-height: 1.7;
+        }
+
+        .contact-info a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .contact-info a:hover {
+            color: var(--primary-light);
         }
 
         footer {
@@ -252,6 +298,10 @@
             .page-header h1 {
                 font-size: 32px;
             }
+
+            .contact-card {
+                padding: 32px 24px;
+            }
         }
     </style>
 </head>
@@ -276,130 +326,54 @@
 
     <div class="page-header">
         <div class="container">
-            <h1>Veelgestelde vragen</h1>
-            <p>Alles wat je wilt weten over Wandeldagboek</p>
+            <h1>Neem contact op</h1>
+            <p>Heb je een vraag, suggestie of feedback? We horen graag van je!</p>
         </div>
     </div>
 
-    <section class="faq-section">
+    <section class="contact-section">
         <div class="container">
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    <span>Wat is Wandeldagboek precies?</span>
-                    <span class="faq-icon">▼</span>
-                </div>
-                <div class="faq-answer">
-                    <div class="faq-answer-content">
-                        Wandeldagboek is een app om je wandelbeleving vast te leggen. Niet hoeveel stappen je zet of hoe snel je loopt, maar wat je ziet, voelt en denkt tijdens het wandelen. Het is een persoonlijk dagboek, geen sporttracker.
+            <div class="contact-card">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Naam</label>
+                        <input type="text" id="name" name="name" required placeholder="Je naam">
                     </div>
-                </div>
-            </div>
 
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    <span>Voor wie is deze app bedoeld?</span>
-                    <span class="faq-icon">▼</span>
-                </div>
-                <div class="faq-answer">
-                    <div class="faq-answer-content">
-                        Voor iedereen die graag wandelt en die momenten wil bewaren. Of je nu lange afstandswandelingen maakt, dagelijks een rondje door het park loopt, of af en toe een natuurwandeling maakt - Wandeldagboek helpt je die ervaringen vast te leggen.
+                    <div class="form-group">
+                        <label for="email">E-mailadres</label>
+                        <input type="email" id="email" name="email" required placeholder="je@email.com">
                     </div>
-                </div>
-            </div>
 
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    <span>Moet ik tijdens het wandelen notities maken?</span>
-                    <span class="faq-icon">▼</span>
-                </div>
-                <div class="faq-answer">
-                    <div class="faq-answer-content">
-                        Nee, dat hoeft niet! Je kunt de app gebruiken zoals jij dat fijn vindt. Sommige mensen schrijven tijdens het lopen korte notities, anderen vullen alles na afloop in. De app stuurt je vriendelijke herinneringen als je dat wilt, maar die kun je uitschakelen.
+                    <div class="form-group">
+                        <label for="subject">Onderwerp</label>
+                        <select id="subject" name="subject" required>
+                            <option value="">Kies een onderwerp</option>
+                            <option value="question">Vraag over de app</option>
+                            <option value="bug">Bug rapporteren</option>
+                            <option value="feature">Feature suggestie</option>
+                            <option value="feedback">Algemene feedback</option>
+                            <option value="other">Anders</option>
+                        </select>
                     </div>
-                </div>
-            </div>
 
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    <span>Worden mijn wandelingen gedeeld met anderen?</span>
-                    <span class="faq-icon">▼</span>
-                </div>
-                <div class="faq-answer">
-                    <div class="faq-answer-content">
-                        Nee, absoluut niet. Je wandelingen zijn privé en blijven van jou. Wandeldagboek is geen social media platform. Alles wat je schrijft en toevoegt blijft op jouw apparaat, tenzij je iCloud sync hebt ingeschakeld (dan wordt het gesynchroniseerd tussen je eigen apparaten).
+                    <div class="form-group">
+                        <label for="message">Bericht</label>
+                        <textarea id="message" name="message" required placeholder="Vertel ons wat je op het hart hebt..."></textarea>
                     </div>
-                </div>
-            </div>
 
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    <span>Kan ik foto's toevoegen?</span>
-                    <span class="faq-icon">▼</span>
-                </div>
-                <div class="faq-answer">
-                    <div class="faq-answer-content">
-                        Ja! Je kunt tot 5 foto's per wandeling toevoegen. Zo kun je mooie momenten, bijzondere plekken of kleine details vastleggen die je tijdens het wandelen opvielen.
-                    </div>
-                </div>
-            </div>
+                    <button type="submit" class="submit-btn">Verstuur bericht</button>
+                </form>
 
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    <span>Hoe zit het met energie en stress meten?</span>
-                    <span class="faq-icon">▼</span>
-                </div>
-                <div class="faq-answer">
-                    <div class="faq-answer-content">
-                        Voor je wandeling geef je aan hoe energiek je je voelt en hoeveel stress je ervaart (op een schaal van 1-10). Na afloop doe je dat opnieuw. Zo zie je in één oogopslag het effect van wandelen op je welzijn. Dit helpt je patronen ontdekken: welke wandelingen doen je goed?
-                    </div>
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    <span>Zijn er abonnementskosten?</span>
-                    <span class="faq-icon">▼</span>
-                </div>
-                <div class="faq-answer">
-                    <div class="faq-answer-content">
-                        Nee, Wandeldagboek is een eenmalige aankoop. Geen abonnementen, geen verborgen kosten. Download de app eenmaal en gebruik hem zo lang je wilt.
-                    </div>
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    <span>Werkt de app zonder internetverbinding?</span>
-                    <span class="faq-icon">▼</span>
-                </div>
-                <div class="faq-answer">
-                    <div class="faq-answer-content">
-                        Ja! Wandeldagboek werkt volledig offline. Je kunt notities maken, foto's toevoegen en reflecteren zonder internetverbinding. Alleen voor iCloud sync en de GPS-locatie functie heb je internet nodig.
-                    </div>
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    <span>Kan ik mijn oude wandelingen exporteren?</span>
-                    <span class="faq-icon">▼</span>
-                </div>
-                <div class="faq-answer">
-                    <div class="faq-answer-content">
-                        Momenteel is export functionaliteit in ontwikkeling. Als je iCloud sync hebt ingeschakeld, zijn je wandelingen automatisch veilig opgeslagen en worden ze gesynchroniseerd tussen je apparaten.
-                    </div>
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    <span>Heb je nog een andere vraag?</span>
-                    <span class="faq-icon">▼</span>
-                </div>
-                <div class="faq-answer">
-                    <div class="faq-answer-content">
-                        Neem gerust <a href="feedback.html" style="color: var(--primary); text-decoration: underline;">contact met ons op</a>. We helpen je graag verder!
-                    </div>
+                <div class="contact-info">
+                    <h3>Direct contact</h3>
+                    <p>
+                        Je kunt ons ook rechtstreeks mailen op:<br>
+                        <a href="mailto:support@wandeldagboek.app">support@wandeldagboek.app</a>
+                    </p>
+                    <p style="margin-top: 24px; font-size: 14px; color: var(--text-secondary);">
+                        We proberen binnen 48 uur te reageren.
+                    </p>
                 </div>
             </div>
         </div>
@@ -421,18 +395,15 @@
             document.getElementById('navLinks').classList.toggle('active');
         }
 
-        function toggleFaq(element) {
-            const faqItem = element.parentElement;
-            const wasActive = faqItem.classList.contains('active');
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
             
-            document.querySelectorAll('.faq-item').forEach(item => {
-                item.classList.remove('active');
-            });
+            // Hier zou je de form data naar je backend sturen
+            // Bijvoorbeeld met fetch() naar je API of een service zoals Formspree
             
-            if (!wasActive) {
-                faqItem.classList.add('active');
-            }
-        }
+            alert('Bedankt voor je bericht! We nemen zo snel mogelijk contact op.');
+            this.reset();
+        });
     </script>
 </body>
 </html>
