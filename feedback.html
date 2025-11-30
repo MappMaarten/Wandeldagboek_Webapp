@@ -381,7 +381,7 @@
     <section class="contact-section">
         <div class="container">
             <div class="contact-card">
-                <form id="contactForm">
+                <form id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
                     <div class="form-group">
                         <label for="name">Naam</label>
                         <input type="text" id="name" name="name" required placeholder="Je naam">
@@ -396,11 +396,11 @@
                         <label for="subject">Onderwerp</label>
                         <select id="subject" name="subject" required>
                             <option value="">Kies een onderwerp</option>
-                            <option value="question">Vraag over de app</option>
-                            <option value="bug">Bug rapporteren</option>
-                            <option value="feature">Feature suggestie</option>
-                            <option value="feedback">Algemene feedback</option>
-                            <option value="other">Anders</option>
+                            <option value="Vraag over de app">Vraag over de app</option>
+                            <option value="Bug rapporteren">Bug rapporteren</option>
+                            <option value="Feature suggestie">Feature suggestie</option>
+                            <option value="Algemene feedback">Algemene feedback</option>
+                            <option value="Anders">Anders</option>
                         </select>
                     </div>
 
@@ -408,6 +408,12 @@
                         <label for="message">Bericht</label>
                         <textarea id="message" name="message" required placeholder="Vertel ons wat je op het hart hebt..."></textarea>
                     </div>
+
+                    <!-- Honeypot veld tegen spam (verborgen) -->
+                    <input type="text" name="_gotcha" style="display:none">
+                    
+                    <!-- Redirect na verzenden (optioneel) -->
+                    <input type="hidden" name="_next" value="https://wandeldagboek.app/bedankt.html">
 
                     <button type="submit" class="submit-btn">Verstuur bericht</button>
                 </form>
@@ -445,16 +451,6 @@
         function toggleMenu() {
             document.getElementById('navLinks').classList.toggle('active');
         }
-
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Hier zou je de form data naar je backend sturen
-            // Bijvoorbeeld met fetch() naar je API of een service zoals Formspree
-            
-            alert('Bedankt voor je bericht! We nemen zo snel mogelijk contact op.');
-            this.reset();
-        });
     </script>
 </body>
 </html>
