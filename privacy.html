@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy - Wandeldagboek</title>
+    <title>Privacy - Wandeldagboek</title>
     <style>
         * {
             margin: 0;
@@ -15,12 +15,12 @@
             --primary: #2F5940;
             --primary-light: #4A7C59;
             --primary-dark: #1E3A28;
-            --secondary: #B89968;
             --accent: #D4965A;
             --background: #EAE3D2;
             --card-bg: #F8F5ED;
             --text: #2C3E35;
             --text-secondary: #6B7F73;
+            --glass: rgba(248, 245, 237, 0.85);
         }
 
         body {
@@ -45,7 +45,7 @@
         }
 
         .container {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
             padding: 0 24px;
             position: relative;
@@ -53,12 +53,15 @@
         }
 
         nav {
-            background: var(--card-bg);
-            padding: 20px 0;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 16px 0;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.08);
             position: sticky;
             top: 0;
             z-index: 100;
+            border-bottom: 1px solid rgba(47, 89, 64, 0.1);
         }
 
         nav .container {
@@ -71,16 +74,16 @@
         .logo {
             display: flex;
             align-items: center;
-            gap: 12px;
-            font-size: 24px;
-            font-weight: bold;
+            gap: 10px;
+            font-size: 22px;
+            font-weight: 700;
             color: var(--primary);
             text-decoration: none;
         }
 
         .logo svg {
-            width: 32px;
-            height: 32px;
+            width: 28px;
+            height: 28px;
         }
 
         .nav-links {
@@ -93,6 +96,7 @@
             color: var(--text);
             text-decoration: none;
             font-weight: 500;
+            font-size: 15px;
             transition: color 0.3s;
         }
 
@@ -104,84 +108,100 @@
             display: none;
             background: none;
             border: none;
-            font-size: 28px;
+            font-size: 24px;
             color: var(--primary);
             cursor: pointer;
         }
 
         .page-header {
-            padding: 80px 0 40px;
+            padding: 60px 0 40px;
             text-align: center;
         }
 
         .page-header h1 {
-            font-size: 48px;
+            font-size: 42px;
+            font-weight: 700;
             color: var(--primary);
-            margin-bottom: 16px;
+            margin-bottom: 12px;
+            letter-spacing: -0.5px;
         }
 
-        .page-header p {
-            font-size: 18px;
+        .page-header .last-updated {
+            font-size: 14px;
             color: var(--text-secondary);
         }
 
-        .content-section {
+        .privacy-content {
             padding: 40px 0 80px;
         }
 
-        .content-card {
-            background: var(--card-bg);
-            border-radius: 24px;
+        .privacy-card {
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 20px;
             padding: 48px;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+            border: 1px solid rgba(47, 89, 64, 0.1);
         }
 
-        .content-card h2 {
+        .privacy-section {
+            margin-bottom: 40px;
+        }
+
+        .privacy-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .privacy-section h2 {
+            font-size: 24px;
             color: var(--primary);
-            font-size: 28px;
-            margin-top: 32px;
             margin-bottom: 16px;
+            font-weight: 700;
         }
 
-        .content-card h2:first-child {
-            margin-top: 0;
-        }
-
-        .content-card h3 {
+        .privacy-section h3 {
+            font-size: 18px;
             color: var(--primary-light);
-            font-size: 20px;
-            margin-top: 24px;
-            margin-bottom: 12px;
+            margin: 24px 0 12px;
+            font-weight: 600;
         }
 
-        .content-card p {
+        .privacy-section p {
             color: var(--text-secondary);
-            line-height: 1.8;
             margin-bottom: 16px;
+            line-height: 1.8;
+            font-size: 15px;
         }
 
-        .content-card ul {
-            margin: 16px 0 16px 24px;
+        .privacy-section ul {
+            margin: 16px 0;
+            padding-left: 24px;
             color: var(--text-secondary);
         }
 
-        .content-card li {
+        .privacy-section li {
             margin-bottom: 8px;
-            line-height: 1.8;
+            line-height: 1.7;
         }
 
         .highlight-box {
             background: rgba(212, 150, 90, 0.1);
             border-left: 4px solid var(--accent);
-            padding: 24px;
-            border-radius: 12px;
+            padding: 20px;
+            border-radius: 8px;
             margin: 24px 0;
+        }
+
+        .highlight-box p {
+            margin-bottom: 0;
+            color: var(--text);
         }
 
         footer {
             background: var(--primary-dark);
             color: white;
-            padding: 48px 0 24px;
+            padding: 40px 0 24px;
             margin-top: 80px;
         }
 
@@ -190,7 +210,7 @@
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
-            gap: 24px;
+            gap: 20px;
             max-width: 1200px;
         }
 
@@ -199,6 +219,7 @@
             text-decoration: none;
             opacity: 0.8;
             transition: opacity 0.3s;
+            font-size: 14px;
         }
 
         footer a:hover {
@@ -217,7 +238,8 @@
                 top: 100%;
                 left: 0;
                 right: 0;
-                background: var(--card-bg);
+                background: var(--glass);
+                backdrop-filter: blur(20px);
                 flex-direction: column;
                 padding: 24px;
                 box-shadow: 0 8px 16px rgba(0,0,0,0.1);
@@ -232,11 +254,15 @@
             }
 
             .page-header h1 {
-                font-size: 36px;
+                font-size: 32px;
             }
 
-            .content-card {
+            .privacy-card {
                 padding: 32px 24px;
+            }
+
+            .privacy-section h2 {
+                font-size: 20px;
             }
         }
     </style>
@@ -245,8 +271,8 @@
     <nav>
         <div class="container">
             <a href="index.html" class="logo">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                    <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
                 </svg>
                 Wandeldagboek
             </a>
@@ -263,125 +289,144 @@
     <div class="page-header">
         <div class="container">
             <h1>Privacybeleid</h1>
-            <p>Laatst bijgewerkt: November 2024</p>
+            <p class="last-updated">Laatste update: November 2024</p>
         </div>
     </div>
 
-    <section class="content-section">
+    <section class="privacy-content">
         <div class="container">
-            <div class="content-card">
-                <h2>Inleiding</h2>
-                <p>
-                    Bij Wandeldagboek respecteren we je privacy. Deze app is gebouwd met het principe "jouw data is van jou". 
-                    Dit privacybeleid legt uit welke informatie we verzamelen, hoe we deze gebruiken, en welke rechten je hebt.
-                </p>
-
+            <div class="privacy-card">
                 <div class="highlight-box">
-                    <strong>Kort samengevat:</strong> Je wandelingen blijven privé. We delen of verkopen je gegevens nooit. 
-                    Alles wordt lokaal op je apparaat opgeslagen, tenzij je zelf iCloud sync inschakelt.
+                    <p><strong>Kort samengevat:</strong> Jouw wandelingen zijn privé en blijven van jou. We verzamelen geen data, delen niets met derden, en je hebt volledige controle over je informatie.</p>
                 </div>
 
-                <h2>Welke informatie verzamelen we?</h2>
-                
-                <h3>Informatie die je invoert</h3>
-                <p>Wanneer je Wandeldagboek gebruikt, voer je vrijwillig de volgende informatie in:</p>
-                <ul>
-                    <li>Wandelgegevens (naam, datum, locatie, type wandeling)</li>
-                    <li>Persoonlijke notities en reflecties</li>
-                    <li>Foto's die je toevoegt aan je wandelingen</li>
-                    <li>Audio-opnames die je maakt</li>
-                    <li>Energie- en stressniveaus (als je deze invult)</li>
-                    <li>Observaties tijdens je wandeling</li>
-                </ul>
+                <div class="privacy-section">
+                    <h2>1. Inleiding</h2>
+                    <p>
+                        Wandeldagboek is ontworpen met privacy als kernwaarde. Deze app is jouw persoonlijke dagboek, 
+                        geen social media platform en geen data-verzamelaar. Dit privacybeleid legt uit hoe we met 
+                        jouw gegevens omgaan.
+                    </p>
+                </div>
 
-                <h3>Automatisch verzamelde informatie</h3>
-                <p>De app verzamelt minimale technische informatie:</p>
-                <ul>
-                    <li>Locatiegegevens (alleen als je de GPS-functie gebruikt voor startlocatie)</li>
-                    <li>App gebruik statistieken (aantal wandelingen, louter lokaal)</li>
-                </ul>
+                <div class="privacy-section">
+                    <h2>2. Welke gegevens worden opgeslagen</h2>
+                    <p>Wandeldagboek slaat alleen op wat jij zelf invoert:</p>
+                    <ul>
+                        <li>Datum en tijd van je wandelingen</li>
+                        <li>Je notities en reflecties</li>
+                        <li>Foto's die je toevoegt (maximaal 5 per wandeling)</li>
+                        <li>Je energie- en spanningsniveau (voor en na wandeling)</li>
+                        <li>Optionele locatiegegevens (GPS) als je dit zelf activeert</li>
+                        <li>App-instellingen en voorkeuren</li>
+                    </ul>
+                </div>
 
-                <h2>Hoe gebruiken we deze informatie?</h2>
-                <p>Alle informatie die je invoert wordt gebruikt om:</p>
-                <ul>
-                    <li>Je wandeldagboek bij te houden</li>
-                    <li>Je wandelingen te organiseren en doorzoekbaar te maken</li>
-                    <li>Je inzicht te geven in je wandelpatronen</li>
-                    <li>De app functionaliteit te bieden (zoals herinneringen als je dit wilt)</li>
-                </ul>
+                <div class="privacy-section">
+                    <h2>3. Waar worden je gegevens bewaard</h2>
+                    
+                    <h3>Lokale opslag (standaard)</h3>
+                    <p>
+                        Standaard worden al je gegevens <strong>alleen op jouw iPhone</strong> opgeslagen. Ze verlaten 
+                        je apparaat niet en zijn voor niemand anders toegankelijk.
+                    </p>
 
-                <h2>Waar wordt je data opgeslagen?</h2>
-                
-                <h3>Lokale opslag</h3>
-                <p>
-                    Standaard wordt al je data lokaal op je iPhone of iPad opgeslagen. Niemand, inclusief wij, 
-                    heeft toegang tot deze gegevens.
-                </p>
+                    <h3>iCloud synchronisatie (optioneel)</h3>
+                    <p>
+                        Als je ervoor kiest om iCloud sync te activeren in de app-instellingen, worden je gegevens 
+                        automatisch gesynchroniseerd tussen al je eigen Apple apparaten via jouw persoonlijke iCloud 
+                        account. Dit betekent:
+                    </p>
+                    <ul>
+                        <li>Je data wordt versleuteld verstuurd naar Apple's servers</li>
+                        <li>Alleen jij hebt toegang via je Apple ID</li>
+                        <li>We (de makers van Wandeldagboek) hebben geen toegang tot deze data</li>
+                        <li>Apple's privacybeleid is van toepassing op iCloud opslag</li>
+                    </ul>
+                </div>
 
-                <h3>iCloud synchronisatie (optioneel)</h3>
-                <p>
-                    Als je iCloud sync inschakelt in je instellingen, wordt je data gesynchroniseerd met je persoonlijke 
-                    iCloud account. Dit gebeurt via Apple's beveiligde infrastructuur. Wij hebben geen toegang tot je iCloud data.
-                </p>
+                <div class="privacy-section">
+                    <h2>4. Wat we NIET doen</h2>
+                    <p>Wandeldagboek:</p>
+                    <ul>
+                        <li>Verkoopt of deelt <strong>nooit</strong> je gegevens met derden</li>
+                        <li>Verzamelt geen analytics of tracking data</li>
+                        <li>Bevat geen advertenties</li>
+                        <li>Maakt geen gebruikersprofielen</li>
+                        <li>Stuurt je data niet naar onze servers (tenzij je iCloud sync activeert)</li>
+                        <li>Volgt niet wat je doet buiten de app</li>
+                    </ul>
+                </div>
 
-                <h2>Delen we je gegevens?</h2>
-                <p><strong>Nee.</strong> Wandeldagboek deelt, verkoopt of verhuurt je persoonlijke gegevens nooit aan derden.</p>
+                <div class="privacy-section">
+                    <h2>5. Notificaties</h2>
+                    <p>
+                        Als je ervoor kiest om herinneringen te ontvangen tijdens het wandelen, worden deze 
+                        <strong>lokaal op je apparaat</strong> gepland. Er worden geen gegevens naar externe 
+                        servers gestuurd om notificaties te versturen.
+                    </p>
+                </div>
 
-                <h3>Uitzonderingen</h3>
-                <p>We delen alleen informatie als:</p>
-                <ul>
-                    <li>Je ons daar expliciet toestemming voor geeft</li>
-                    <li>Dit wettelijk verplicht is</li>
-                </ul>
+                <div class="privacy-section">
+                    <h2>6. Beveiliging</h2>
+                    <p>
+                        Je gegevens worden beschermd door iOS's ingebouwde beveiligingsmaatregelen, inclusief 
+                        encryptie op je apparaat. Als je iCloud sync gebruikt, profiteer je van Apple's 
+                        end-to-end encryptie.
+                    </p>
+                </div>
 
-                <h2>Notificaties</h2>
-                <p>
-                    Als je notificaties inschakelt, kunnen we je herinneringen sturen tijdens je wandeling of motivatie 
-                    berichten als je een tijdje niet hebt gewandeld. Deze herinneringen worden lokaal op je apparaat gepland 
-                    en vereisen geen internetverbinding.
-                </p>
+                <div class="privacy-section">
+                    <h2>7. Jouw rechten</h2>
+                    <p>Je hebt volledige controle over je gegevens:</p>
+                    <ul>
+                        <li><strong>Bekijken:</strong> Al je data is altijd toegankelijk binnen de app</li>
+                        <li><strong>Wijzigen:</strong> Je kunt elke wandeling bewerken of aanpassen</li>
+                        <li><strong>Verwijderen:</strong> Je kunt individuele wandelingen of alle data verwijderen</li>
+                        <li><strong>Exporteren:</strong> Export functionaliteit is in ontwikkeling</li>
+                    </ul>
+                </div>
 
-                <h2>Beveiliging</h2>
-                <p>
-                    We nemen de beveiliging van je gegevens serieus. Je data wordt opgeslagen met de beveiligingsfuncties 
-                    die iOS biedt, inclusief encryptie. Als je iCloud sync gebruikt, profiteer je van Apple's 
-                    end-to-end encryptie.
-                </p>
+                <div class="privacy-section">
+                    <h2>8. Kinderen</h2>
+                    <p>
+                        Wandeldagboek is geschikt voor alle leeftijden. We verzamelen geen persoonlijke 
+                        informatie van gebruikers, ongeacht hun leeftijd.
+                    </p>
+                </div>
 
-                <h2>Je rechten</h2>
-                <p>Je hebt het recht om:</p>
-                <ul>
-                    <li>Al je wandelingen te bekijken in de app</li>
-                    <li>Wandelingen te verwijderen (individueel of allemaal)</li>
-                    <li>iCloud sync uit te schakelen</li>
-                    <li>De app te verwijderen (waarmee alle lokale data wordt gewist)</li>
-                </ul>
+                <div class="privacy-section">
+                    <h2>9. Wijzigingen in dit beleid</h2>
+                    <p>
+                        Als we dit privacybeleid aanpassen, zullen we de datum bovenaan bijwerken en je 
+                        hiervan op de hoogte stellen via de app. Belangrijke wijzigingen communiceren we 
+                        duidelijk.
+                    </p>
+                </div>
 
-                <h2>Kinderen</h2>
-                <p>
-                    Wandeldagboek is geschikt voor alle leeftijden. We verzamelen niet bewust informatie van kinderen 
-                    onder de 13 jaar zonder toestemming van ouders.
-                </p>
+                <div class="privacy-section">
+                    <h2>10. Contact</h2>
+                    <p>
+                        Heb je vragen over dit privacybeleid of over hoe we met je gegevens omgaan? 
+                        Neem gerust contact met ons op via <a href="mailto:support@wandeldagboek.app" 
+                        style="color: var(--primary); text-decoration: underline;">support@wandeldagboek.app</a>
+                    </p>
+                </div>
 
-                <h2>Wijzigingen in dit privacybeleid</h2>
-                <p>
-                    We kunnen dit privacybeleid van tijd tot tijd bijwerken. Als we significante wijzigingen aanbrengen, 
-                    zullen we je hiervan op de hoogte stellen via de app.
-                </p>
-
-                <h2>Contact</h2>
-                <p>
-                    Heb je vragen over dit privacybeleid? Neem contact met ons op via 
-                    <a href="feedback.html" style="color: var(--primary); text-decoration: underline;">ons contactformulier</a> 
-                    of stuur een email naar <strong>support@wandeldagboek.app</strong>
-                </p>
+                <div class="highlight-box" style="margin-top: 48px;">
+                    <p>
+                        <strong>Onze belofte:</strong> Wandeldagboek is gemaakt om je te helpen je 
+                        wandelbeleving vast te leggen, niet om data te verzamelen. Jouw verhalen blijven 
+                        van jou.
+                    </p>
+                </div>
             </div>
         </div>
     </section>
 
     <footer>
         <div class="container">
-            <p>&copy; 2024 Wandeldagboek. Alle rechten voorbehouden.</p>
+            <p>&copy; 2024 Wandeldagboek</p>
             <div class="footer-links">
                 <a href="privacy.html">Privacy</a>
                 <a href="feedback.html">Contact</a>
@@ -392,8 +437,7 @@
 
     <script>
         function toggleMenu() {
-            const navLinks = document.getElementById('navLinks');
-            navLinks.classList.toggle('active');
+            document.getElementById('navLinks').classList.toggle('active');
         }
     </script>
 </body>
