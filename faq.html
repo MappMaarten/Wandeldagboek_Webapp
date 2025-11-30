@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FAQ - Wandeldagboek</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -16,40 +19,29 @@
             --primary-light: #4A7C59;
             --primary-dark: #1E3A28;
             --accent: #D4965A;
-            --background: #EAE3D2;
-            --card-bg: #F8F5ED;
-            --text: #2C3E35;
-            --text-secondary: #6B7F73;
-            --glass: rgba(248, 245, 237, 0.85);
+            --background: #F5F2EB;
+            --background-warm: #EAE3D2;
+            --card-bg: #FFFFFF;
+            --text: #1A2B23;
+            --text-secondary: #5A6B62;
+            --glass: rgba(255, 255, 255, 0.9);
+            --shadow-sm: 0 2px 8px rgba(0,0,0,0.04);
+            --shadow-md: 0 8px 24px rgba(0,0,0,0.08);
+            --radius-md: 20px;
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: linear-gradient(135deg, var(--background), rgba(184, 153, 104, 0.15), var(--background));
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--background);
             color: var(--text);
             line-height: 1.6;
-        }
-
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.03) 50%, transparent 100%),
-                linear-gradient(0deg, transparent 0%, rgba(255,255,255,0.02) 50%, transparent 100%);
-            pointer-events: none;
-            z-index: 1;
+            -webkit-font-smoothing: antialiased;
         }
 
         .container {
             max-width: 800px;
             margin: 0 auto;
             padding: 0 24px;
-            position: relative;
-            z-index: 2;
         }
 
         nav {
@@ -57,11 +49,10 @@
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             padding: 16px 0;
-            box-shadow: 0 4px 24px rgba(0,0,0,0.08);
             position: sticky;
             top: 0;
             z-index: 100;
-            border-bottom: 1px solid rgba(47, 89, 64, 0.1);
+            border-bottom: 1px solid rgba(47, 89, 64, 0.08);
         }
 
         nav .container {
@@ -74,26 +65,38 @@
         .logo {
             display: flex;
             align-items: center;
-            gap: 10px;
-            font-size: 22px;
+            gap: 12px;
+            font-size: 20px;
             font-weight: 700;
             color: var(--primary);
             text-decoration: none;
         }
 
-        .logo svg {
-            width: 28px;
-            height: 28px;
+        .logo-icon {
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(47, 89, 64, 0.25);
+        }
+
+        .logo-icon svg {
+            width: 20px;
+            height: 20px;
+            stroke: white;
         }
 
         .nav-links {
             display: flex;
-            gap: 32px;
+            gap: 36px;
             list-style: none;
         }
 
         .nav-links a {
-            color: var(--text);
+            color: var(--text-secondary);
             text-decoration: none;
             font-weight: 500;
             font-size: 15px;
@@ -114,12 +117,13 @@
         }
 
         .page-header {
-            padding: 60px 0 40px;
+            padding: 80px 0 48px;
             text-align: center;
+            background: linear-gradient(180deg, var(--background) 0%, var(--background-warm) 100%);
         }
 
         .page-header h1 {
-            font-size: 42px;
+            font-size: 44px;
             font-weight: 700;
             color: var(--primary);
             margin-bottom: 12px;
@@ -132,48 +136,66 @@
         }
 
         .faq-section {
-            padding: 40px 0 80px;
+            padding: 48px 0 100px;
         }
 
         .faq-item {
-            background: var(--glass);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
+            background: var(--card-bg);
             border-radius: 16px;
             margin-bottom: 12px;
             overflow: hidden;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.06);
-            border: 1px solid rgba(47, 89, 64, 0.1);
+            box-shadow: var(--shadow-sm);
+            border: 1px solid rgba(47, 89, 64, 0.06);
             transition: all 0.3s;
         }
 
         .faq-item:hover {
-            box-shadow: 0 6px 24px rgba(0,0,0,0.1);
+            box-shadow: var(--shadow-md);
         }
 
         .faq-question {
-            padding: 20px 24px;
+            padding: 22px 24px;
             cursor: pointer;
             display: flex;
             justify-content: space-between;
             align-items: center;
             font-weight: 600;
             font-size: 16px;
-            color: var(--primary);
+            color: var(--text);
             user-select: none;
+            transition: background 0.2s;
         }
 
         .faq-question:hover {
-            background: rgba(47, 89, 64, 0.05);
+            background: rgba(47, 89, 64, 0.03);
         }
 
         .faq-icon {
-            font-size: 20px;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: var(--background);
+            transition: all 0.3s;
+            flex-shrink: 0;
+            margin-left: 16px;
+        }
+
+        .faq-icon svg {
+            width: 14px;
+            height: 14px;
+            stroke: var(--primary);
             transition: transform 0.3s;
-            color: var(--accent);
         }
 
         .faq-item.active .faq-icon {
+            background: var(--primary);
+        }
+
+        .faq-item.active .faq-icon svg {
+            stroke: white;
             transform: rotate(180deg);
         }
 
@@ -184,10 +206,16 @@
         }
 
         .faq-answer-content {
-            padding: 0 24px 20px;
+            padding: 0 24px 24px;
             color: var(--text-secondary);
-            line-height: 1.7;
+            line-height: 1.75;
             font-size: 15px;
+        }
+
+        .faq-answer-content a {
+            color: var(--primary);
+            text-decoration: underline;
+            text-underline-offset: 2px;
         }
 
         .faq-item.active .faq-answer {
@@ -198,7 +226,6 @@
             background: var(--primary-dark);
             color: white;
             padding: 40px 0 24px;
-            margin-top: 80px;
         }
 
         footer .container {
@@ -210,10 +237,15 @@
             max-width: 1200px;
         }
 
+        footer p {
+            opacity: 0.7;
+            font-size: 14px;
+        }
+
         footer a {
             color: white;
             text-decoration: none;
-            opacity: 0.8;
+            opacity: 0.7;
             transition: opacity 0.3s;
             font-size: 14px;
         }
@@ -224,7 +256,7 @@
 
         .footer-links {
             display: flex;
-            gap: 24px;
+            gap: 28px;
         }
 
         @media (max-width: 768px) {
@@ -238,7 +270,8 @@
                 backdrop-filter: blur(20px);
                 flex-direction: column;
                 padding: 24px;
-                box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+                gap: 16px;
+                box-shadow: var(--shadow-md);
             }
 
             .nav-links.active {
@@ -249,8 +282,17 @@
                 display: block;
             }
 
+            .page-header {
+                padding: 60px 0 40px;
+            }
+
             .page-header h1 {
                 font-size: 32px;
+            }
+
+            footer .container {
+                flex-direction: column;
+                text-align: center;
             }
         }
     </style>
@@ -259,9 +301,14 @@
     <nav>
         <div class="container">
             <a href="index.html" class="logo">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
-                </svg>
+                <div class="logo-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="4" r="2"/>
+                        <path d="M10.5 8.5L9 13l-2 6"/>
+                        <path d="M13.5 8.5L15 13l2 6"/>
+                        <path d="M9 13h6"/>
+                    </svg>
+                </div>
                 Wandeldagboek
             </a>
             <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
@@ -286,7 +333,11 @@
             <div class="faq-item">
                 <div class="faq-question" onclick="toggleFaq(this)">
                     <span>Wat is Wandeldagboek precies?</span>
-                    <span class="faq-icon">▼</span>
+                    <span class="faq-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                            <polyline points="6 9 12 15 18 9"/>
+                        </svg>
+                    </span>
                 </div>
                 <div class="faq-answer">
                     <div class="faq-answer-content">
@@ -298,7 +349,11 @@
             <div class="faq-item">
                 <div class="faq-question" onclick="toggleFaq(this)">
                     <span>Voor wie is deze app bedoeld?</span>
-                    <span class="faq-icon">▼</span>
+                    <span class="faq-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                            <polyline points="6 9 12 15 18 9"/>
+                        </svg>
+                    </span>
                 </div>
                 <div class="faq-answer">
                     <div class="faq-answer-content">
@@ -310,7 +365,11 @@
             <div class="faq-item">
                 <div class="faq-question" onclick="toggleFaq(this)">
                     <span>Moet ik tijdens het wandelen notities maken?</span>
-                    <span class="faq-icon">▼</span>
+                    <span class="faq-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                            <polyline points="6 9 12 15 18 9"/>
+                        </svg>
+                    </span>
                 </div>
                 <div class="faq-answer">
                     <div class="faq-answer-content">
@@ -322,7 +381,11 @@
             <div class="faq-item">
                 <div class="faq-question" onclick="toggleFaq(this)">
                     <span>Worden mijn wandelingen gedeeld met anderen?</span>
-                    <span class="faq-icon">▼</span>
+                    <span class="faq-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                            <polyline points="6 9 12 15 18 9"/>
+                        </svg>
+                    </span>
                 </div>
                 <div class="faq-answer">
                     <div class="faq-answer-content">
@@ -334,7 +397,11 @@
             <div class="faq-item">
                 <div class="faq-question" onclick="toggleFaq(this)">
                     <span>Kan ik foto's toevoegen?</span>
-                    <span class="faq-icon">▼</span>
+                    <span class="faq-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                            <polyline points="6 9 12 15 18 9"/>
+                        </svg>
+                    </span>
                 </div>
                 <div class="faq-answer">
                     <div class="faq-answer-content">
@@ -346,7 +413,11 @@
             <div class="faq-item">
                 <div class="faq-question" onclick="toggleFaq(this)">
                     <span>Hoe zit het met energie en stress meten?</span>
-                    <span class="faq-icon">▼</span>
+                    <span class="faq-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                            <polyline points="6 9 12 15 18 9"/>
+                        </svg>
+                    </span>
                 </div>
                 <div class="faq-answer">
                     <div class="faq-answer-content">
@@ -358,7 +429,11 @@
             <div class="faq-item">
                 <div class="faq-question" onclick="toggleFaq(this)">
                     <span>Zijn er abonnementskosten?</span>
-                    <span class="faq-icon">▼</span>
+                    <span class="faq-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                            <polyline points="6 9 12 15 18 9"/>
+                        </svg>
+                    </span>
                 </div>
                 <div class="faq-answer">
                     <div class="faq-answer-content">
@@ -370,7 +445,11 @@
             <div class="faq-item">
                 <div class="faq-question" onclick="toggleFaq(this)">
                     <span>Werkt de app zonder internetverbinding?</span>
-                    <span class="faq-icon">▼</span>
+                    <span class="faq-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                            <polyline points="6 9 12 15 18 9"/>
+                        </svg>
+                    </span>
                 </div>
                 <div class="faq-answer">
                     <div class="faq-answer-content">
@@ -382,7 +461,11 @@
             <div class="faq-item">
                 <div class="faq-question" onclick="toggleFaq(this)">
                     <span>Kan ik mijn oude wandelingen exporteren?</span>
-                    <span class="faq-icon">▼</span>
+                    <span class="faq-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                            <polyline points="6 9 12 15 18 9"/>
+                        </svg>
+                    </span>
                 </div>
                 <div class="faq-answer">
                     <div class="faq-answer-content">
@@ -394,11 +477,15 @@
             <div class="faq-item">
                 <div class="faq-question" onclick="toggleFaq(this)">
                     <span>Heb je nog een andere vraag?</span>
-                    <span class="faq-icon">▼</span>
+                    <span class="faq-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                            <polyline points="6 9 12 15 18 9"/>
+                        </svg>
+                    </span>
                 </div>
                 <div class="faq-answer">
                     <div class="faq-answer-content">
-                        Neem gerust <a href="feedback.html" style="color: var(--primary); text-decoration: underline;">contact met ons op</a>. We helpen je graag verder!
+                        Neem gerust <a href="feedback.html">contact met ons op</a>. We helpen je graag verder!
                     </div>
                 </div>
             </div>
