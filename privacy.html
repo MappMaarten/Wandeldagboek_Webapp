@@ -6,7 +6,7 @@
     <title>Privacy - Wandeldagboek</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -31,11 +31,12 @@
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             background: var(--background);
             color: var(--text);
-            line-height: 1.6;
+            line-height: 1.7;
             -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
         .container {
@@ -117,17 +118,17 @@
         }
 
         .page-header {
-            padding: 80px 0 48px;
+            padding: 100px 0 60px;
             text-align: center;
             background: linear-gradient(180deg, var(--background) 0%, var(--background-warm) 100%);
         }
 
         .page-header h1 {
-            font-size: 44px;
+            font-size: 52px;
             font-weight: 700;
             color: var(--primary);
-            margin-bottom: 12px;
-            letter-spacing: -0.5px;
+            margin-bottom: 16px;
+            letter-spacing: -1.6px;
         }
 
         .page-header .last-updated {
@@ -136,13 +137,13 @@
         }
 
         .privacy-content {
-            padding: 48px 0 100px;
+            padding: 60px 0 120px;
         }
 
         .privacy-card {
             background: var(--card-bg);
             border-radius: var(--radius-md);
-            padding: 56px;
+            padding: 64px;
             box-shadow: var(--shadow-md);
             border: 1px solid rgba(47, 89, 64, 0.08);
         }
@@ -175,10 +176,11 @@
         }
 
         .privacy-section h2 {
-            font-size: 22px;
+            font-size: 26px;
             color: var(--primary);
-            margin-bottom: 16px;
-            font-weight: 700;
+            margin-bottom: 18px;
+            font-weight: 600;
+            letter-spacing: -0.5px;
         }
 
         .privacy-section h3 {
@@ -192,7 +194,8 @@
             color: var(--text-secondary);
             margin-bottom: 16px;
             line-height: 1.8;
-            font-size: 15px;
+            font-size: 16px;
+            font-weight: 400;
         }
 
         .privacy-section ul {
