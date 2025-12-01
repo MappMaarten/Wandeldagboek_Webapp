@@ -23,15 +23,16 @@
             --secondary: #B89968;
             --accent: #D4965A;
             --accent-rust: #A86F4C;
-            --background: #F5F2EB;
-            --background-warm: #EAE3D2;
-            --card-bg: #FFFFFF;
+            --background: #E8E3D5;
+            --background-warm: #DDD6C4;
+            --card-bg: #F5F0E3;
+            --card-bg-alt: #E0D9C7;
             --text: #1A2B23;
-            --text-secondary: #5A6B62;
-            --glass: rgba(255, 255, 255, 0.9);
-            --shadow-sm: 0 2px 8px rgba(0,0,0,0.04);
-            --shadow-md: 0 8px 24px rgba(0,0,0,0.08);
-            --shadow-lg: 0 16px 48px rgba(0,0,0,0.12);
+            --text-secondary: #4A5B52;
+            --glass: rgba(245, 240, 227, 0.95);
+            --shadow-sm: 0 2px 8px rgba(47, 89, 64, 0.08);
+            --shadow-md: 0 8px 24px rgba(47, 89, 64, 0.12);
+            --shadow-lg: 0 16px 48px rgba(47, 89, 64, 0.16);
             --radius-sm: 12px;
             --radius-md: 20px;
             --radius-lg: 28px;
@@ -61,7 +62,7 @@
             position: sticky;
             top: 0;
             z-index: 100;
-            border-bottom: 1px solid rgba(47, 89, 64, 0.08);
+            border-bottom: 1px solid rgba(47, 89, 64, 0.12);
         }
 
         nav .container {
@@ -145,7 +146,7 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: rgba(47, 89, 64, 0.08);
+            background: rgba(47, 89, 64, 0.12);
             color: var(--primary);
             padding: 8px 16px;
             border-radius: 100px;
@@ -241,17 +242,17 @@
         }
 
         .feature {
-            background: var(--background);
+            background: var(--background-warm);
             border-radius: var(--radius-md);
             padding: 36px;
             transition: all 0.3s;
-            border: 1px solid transparent;
+            border: 1px solid rgba(47, 89, 64, 0.08);
         }
 
         .feature:hover {
             transform: translateY(-4px);
             box-shadow: var(--shadow-lg);
-            border-color: rgba(47, 89, 64, 0.1);
+            border-color: rgba(47, 89, 64, 0.15);
         }
 
         .feature-icon {
@@ -290,7 +291,7 @@
         /* LAW Feature Section */
         .law-feature {
             padding: 100px 0;
-            background: var(--card-bg);
+            background: var(--background-warm);
         }
 
         .law-content {
@@ -357,7 +358,7 @@
             font-size: 11px;
             font-weight: 600;
             color: var(--accent);
-            background: rgba(212, 150, 90, 0.15);
+            background: rgba(212, 150, 90, 0.2);
             padding: 3px 8px;
             border-radius: 100px;
             margin-left: 8px;
@@ -376,12 +377,13 @@
         }
 
         .route-card {
-            background: var(--background);
+            background: var(--card-bg);
             border-radius: 20px;
             padding: 28px;
             width: 100%;
             max-width: 360px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+            border: 1px solid rgba(47, 89, 64, 0.08);
         }
 
         .route-header {
@@ -428,7 +430,7 @@
 
         .progress-bar {
             height: 8px;
-            background: rgba(47, 89, 64, 0.1);
+            background: rgba(47, 89, 64, 0.15);
             border-radius: 100px;
             overflow: hidden;
             margin-bottom: 8px;
@@ -458,7 +460,7 @@
             align-items: center;
             gap: 12px;
             padding: 12px 14px;
-            background: var(--card-bg);
+            background: var(--background-warm);
             border-radius: 12px;
             font-size: 14px;
         }
@@ -502,7 +504,7 @@
             font-size: 11px;
             font-weight: 600;
             color: var(--accent);
-            background: rgba(212, 150, 90, 0.15);
+            background: rgba(212, 150, 90, 0.2);
             padding: 4px 10px;
             border-radius: 100px;
         }
@@ -541,7 +543,7 @@
             border-radius: var(--radius-md);
             padding: 32px;
             box-shadow: var(--shadow-md);
-            border: 1px solid rgba(47, 89, 64, 0.06);
+            border: 1px solid rgba(47, 89, 64, 0.08);
             transition: all 0.3s ease;
             position: relative;
         }
@@ -589,7 +591,7 @@
             align-items: center;
             gap: 12px;
             padding-top: 16px;
-            border-top: 1px solid rgba(47, 89, 64, 0.08);
+            border-top: 1px solid rgba(47, 89, 64, 0.12);
         }
 
         .author-avatar {
@@ -642,6 +644,7 @@
             width: fit-content;
             margin-left: auto;
             margin-right: auto;
+            border: 1px solid rgba(47, 89, 64, 0.08);
         }
 
         .rating-score {
